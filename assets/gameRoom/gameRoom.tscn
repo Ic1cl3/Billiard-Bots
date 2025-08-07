@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgx2pc0352j5p"]
+
+[ext_resource type="Texture2D" uid="uid://6a0827ksbrc3" path="res://assets/gameRoom/backgroundTexture.png" id="1_yo7b0"]
+[ext_resource type="PackedScene" uid="uid://55ta8hknn3i" path="res://assets/ball/wasdBall/wasdBall.tscn" id="2_t6kvb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhfun"]
+radius = 267.0
+
+[sub_resource type="Gradient" id="Gradient_asr1c"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npavp"]
+gradient = SubResource("Gradient_asr1c")
+width = 1152
+height = 648
+
+[node name="gameRoom" type="Node2D"]
+
+[node name="wasdBall" parent="." instance=ExtResource("2_t6kvb")]
+position = Vector2(423, 319)
+
+[node name="battleZone" type="Area2D" parent="."]
+
+[node name="battleZoneShape" type="CollisionShape2D" parent="battleZone"]
+position = Vector2(576, 324)
+shape = SubResource("CircleShape2D_mhfun")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="layer0" type="Sprite2D" parent="background"]
+z_index = -1
+position = Vector2(576, 324)
+texture = SubResource("GradientTexture2D_npavp")
+
+[node name="layer1" type="Sprite2D" parent="background"]
+position = Vector2(576, 324)
+texture = ExtResource("1_yo7b0")
