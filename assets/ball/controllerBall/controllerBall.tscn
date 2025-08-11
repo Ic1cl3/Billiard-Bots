@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://clpdfw6tldbfb"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://divnoluungbta" path="res://assets/ball/ballMaterial.tres" id="1_1k7yo"]
+[ext_resource type="Script" uid="uid://b7rwj1bt7v3f7" path="res://assets/ball/controllerBall/controllerBall.gd" id="1_lnais"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnais"]
+radius = 25.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1k7yo"]
+load_path = "res://.godot/imported/blueBall.png-6b9f30a56fa0ece3d5ad2868864feb49.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6hvtf"]
+load_path = "res://.godot/imported/redBall.png-40f6527f4ac0169923a5311ae70d8493.ctex"
+
+[node name="controllerBall" type="RigidBody2D"]
+mass = 0.5
+physics_material_override = ExtResource("1_1k7yo")
+script = ExtResource("1_lnais")
+force = null
+friction = null
+team = null
+metadata/_custom_type_script = "uid://c4sgo11j8eyqh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lnais")
+
+[node name="blueBall" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_1k7yo")
+
+[node name="redBall" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_6hvtf")

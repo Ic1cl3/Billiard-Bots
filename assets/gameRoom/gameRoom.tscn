@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgx2pc0352j5p"]
+[gd_scene load_steps=9 format=3 uid="uid://cgx2pc0352j5p"]
 
+[ext_resource type="Script" uid="uid://b2aakll5ac2rk" path="res://assets/gameRoom/gameRoom.gd" id="1_45cag"]
 [ext_resource type="Texture2D" uid="uid://6a0827ksbrc3" path="res://assets/gameRoom/backgroundTexture.png" id="1_yo7b0"]
 [ext_resource type="PackedScene" uid="uid://55ta8hknn3i" path="res://assets/ball/wasdBall/wasdBall.tscn" id="2_t6kvb"]
+[ext_resource type="Texture2D" uid="uid://cykj0q4osh1rm" path="res://assets/gameRoom/zoneEdgeTexture.png" id="3_vd06s"]
+[ext_resource type="PackedScene" uid="uid://cfbjv1qjj7jfo" path="res://assets/ball/mouseBall/mouseBall.tscn" id="5_13cew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhfun"]
-radius = 267.0
+radius = 256.0
 
 [sub_resource type="Gradient" id="Gradient_asr1c"]
 offsets = PackedFloat32Array(0)
@@ -16,15 +19,17 @@ width = 1152
 height = 648
 
 [node name="gameRoom" type="Node2D"]
-
-[node name="wasdBall" parent="." instance=ExtResource("2_t6kvb")]
-position = Vector2(423, 319)
+script = ExtResource("1_45cag")
 
 [node name="battleZone" type="Area2D" parent="."]
+position = Vector2(576, 324)
 
 [node name="battleZoneShape" type="CollisionShape2D" parent="battleZone"]
-position = Vector2(576, 324)
 shape = SubResource("CircleShape2D_mhfun")
+
+[node name="ZoneEdgeTexture" type="Sprite2D" parent="battleZone"]
+visible = false
+texture = ExtResource("3_vd06s")
 
 [node name="background" type="Node2D" parent="."]
 
@@ -36,3 +41,19 @@ texture = SubResource("GradientTexture2D_npavp")
 [node name="layer1" type="Sprite2D" parent="background"]
 position = Vector2(576, 324)
 texture = ExtResource("1_yo7b0")
+
+[node name="wasdBall" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("2_t6kvb")]
+position = Vector2(423, 319)
+force = null
+friction = null
+team = null
+opponent = NodePath("../mouseBall")
+
+[node name="mouseBall" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_13cew")]
+position = Vector2(715, 322)
+force = null
+friction = null
+team = 1
+opponent = NodePath("../wasdBall")
+
+[connection signal="body_exited" from="battleZone" to="." method="_on_battle_zone_body_exited"]
