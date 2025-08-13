@@ -21,7 +21,7 @@ friction = null
 team = null
 metadata/_custom_type_script = "uid://c4sgo11j8eyqh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lnais")
 
 [node name="blueBall" type="Sprite2D" parent="."]

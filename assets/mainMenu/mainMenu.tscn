@@ -1,0 +1,298 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8dvc22fp15ud"]
+
+[ext_resource type="Script" uid="uid://c83f7jlawgh54" path="res://assets/mainMenu/mainMenu.gd" id="1_q1seq"]
+[ext_resource type="Texture2D" uid="uid://6a0827ksbrc3" path="res://assets/gameRoom/backgroundTexture.png" id="1_tjw3c"]
+[ext_resource type="Texture2D" uid="uid://0pfbwq3cqcsj" path="res://assets/ball/blueBall.png" id="2_t3etc"]
+[ext_resource type="Texture2D" uid="uid://cqnot5t5xj7ap" path="res://assets/ball/redBall.png" id="3_ebt2f"]
+[ext_resource type="Theme" uid="uid://vu2n5x2bk33y" path="res://assets/theme/theme.tres" id="4_ebt2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1seq"]
+
+[node name="mainMenu" type="CanvasLayer"]
+script = ExtResource("1_q1seq")
+
+[node name="colorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="overlay" type="Sprite2D" parent="colorRect"]
+position = Vector2(576, 324)
+texture = ExtResource("1_tjw3c")
+
+[node name="blueBall" type="Sprite2D" parent="colorRect"]
+position = Vector2(732, 324)
+texture = ExtResource("2_t3etc")
+
+[node name="redBall" type="Sprite2D" parent="colorRect"]
+position = Vector2(420, 324)
+texture = ExtResource("3_ebt2f")
+
+[node name="title" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 408.0
+offset_top = 175.0
+offset_right = -406.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+text = "Billiard Bots"
+horizontal_alignment = 1
+
+[node name="beginButton" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 505.5
+offset_top = 308.0
+offset_right = -504.5
+offset_bottom = -277.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+text = "Begin"
+
+[node name="roundsSelect" type="SpinBox" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 529.0
+offset_top = 447.0
+offset_right = -529.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+max_value = 99.0
+value = 3.0
+alignment = 1
+
+[node name="roundsSelectLabel" type="Label" parent="roundsSelect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_top = -40.0
+offset_right = 57.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Play To:"
+
+[node name="playerOneSelect" type="OptionButton" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = 314.0
+offset_right = -867.0
+offset_bottom = -296.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+selected = 3
+item_count = 4
+popup/item_0/text = "WASD"
+popup/item_0/id = 1
+popup/item_1/text = "Controller"
+popup/item_1/id = 2
+popup/item_2/text = "Mouse"
+popup/item_2/id = 0
+popup/item_3/text = "AI"
+popup/item_3/id = 3
+
+[node name="label" type="Label" parent="playerOneSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -39.0
+offset_right = -29.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Player 1:"
+horizontal_alignment = 1
+
+[node name="loadBotButton" type="Button" parent="playerOneSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.132
+offset_left = 22.0
+offset_top = 46.0
+offset_right = -27.0
+offset_bottom = 70.984
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1seq")
+text = "Load
+Bot"
+
+[node name="path" type="Label" parent="playerOneSelect/loadBotButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = 73.0
+offset_right = 64.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "C://Users/Username/ParentDirectory/BotDirectory"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="fileDialogOpen" type="FileDialog" parent="playerOneSelect"]
+auto_translate_mode = 1
+title = "Open a Directory"
+position = Vector2i(0, 36)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="playerTwoSelect" type="OptionButton" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 865.0
+offset_top = 314.0
+offset_right = -125.0
+offset_bottom = -296.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+selected = 3
+item_count = 4
+popup/item_0/text = "WASD"
+popup/item_0/id = 1
+popup/item_1/text = "Controller"
+popup/item_1/id = 2
+popup/item_2/text = "Mouse"
+popup/item_2/id = 0
+popup/item_3/text = "AI"
+popup/item_3/id = 3
+
+[node name="label" type="Label" parent="playerTwoSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -39.0
+offset_right = -29.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Player 2:"
+horizontal_alignment = 1
+
+[node name="loadBotButton" type="Button" parent="playerTwoSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.132
+offset_left = 22.0
+offset_top = 46.0
+offset_right = -27.0
+offset_bottom = 70.984
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1seq")
+text = "Load
+Bot"
+
+[node name="path" type="Label" parent="playerTwoSelect/loadBotButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = 73.0
+offset_right = 60.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "C://Users/Username/ParentDirectory/BotDirectory"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="fileDialogOpen" type="FileDialog" parent="playerTwoSelect"]
+auto_translate_mode = 1
+title = "Open a Directory"
+position = Vector2i(0, 36)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="runScriptWarning" type="Window" parent="."]
+title = "Warning!"
+initial_position = 2
+size = Vector2i(400, 200)
+visible = false
+transient = true
+exclusive = true
+unresizable = true
+content_scale_mode = 1
+theme = ExtResource("4_ebt2f")
+
+[node name="colorRect" type="ColorRect" parent="runScriptWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label" type="Label" parent="runScriptWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Warning!
+
+Remember to run your bot file. If your bot file is not running, your bot won't do anything during the game."
+autowrap_mode = 3
+
+[node name="checkBox" type="CheckBox" parent="runScriptWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 154.0
+offset_right = -158.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ebt2f")
+text = "Don't warn me again"
+
+[connection signal="pressed" from="beginButton" to="." method="_on_begin_button_pressed"]
+[connection signal="pressed" from="playerOneSelect/loadBotButton" to="." method="_on_p1_load_bot_button_pressed"]
+[connection signal="dir_selected" from="playerOneSelect/fileDialogOpen" to="." method="_on_p1_file_dialog_open_dir_selected"]
+[connection signal="pressed" from="playerTwoSelect/loadBotButton" to="." method="_on_p2_load_bot_button_pressed"]
+[connection signal="dir_selected" from="playerTwoSelect/fileDialogOpen" to="." method="_on_p2_file_dialog_open_dir_selected"]
+[connection signal="close_requested" from="runScriptWarning" to="." method="_on_run_script_warning_close_requested"]
+[connection signal="toggled" from="runScriptWarning/checkBox" to="." method="_on_dontwarnmeagain_toggled"]

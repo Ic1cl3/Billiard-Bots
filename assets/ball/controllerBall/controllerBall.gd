@@ -1,5 +1,5 @@
 extends ball
-# Ball, but controlled with a controller.
+## Ball, but controlled with a controller.
 
 var inputVector = Vector2.ZERO ## Vector of directional inputs.
 

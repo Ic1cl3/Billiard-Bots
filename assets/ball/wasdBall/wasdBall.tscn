@@ -12,12 +12,9 @@ radius = 25.0
 mass = 0.5
 physics_material_override = ExtResource("1_kwocp")
 script = ExtResource("1_qtbhl")
-force = null
-friction = null
-team = null
 metadata/_custom_type_script = "uid://c4sgo11j8eyqh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6kftx")
 
 [node name="blueBall" type="Sprite2D" parent="."]

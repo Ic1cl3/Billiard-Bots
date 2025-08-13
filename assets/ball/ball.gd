@@ -1,5 +1,5 @@
 extends RigidBody2D
-## Default class for all "Ball" objects.
+## Abstract base class for all "Ball" objects.
 class_name ball
 
 

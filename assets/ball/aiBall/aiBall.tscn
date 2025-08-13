@@ -16,12 +16,9 @@ load_path = "res://.godot/imported/redBall.png-40f6527f4ac0169923a5311ae70d8493.
 mass = 0.5
 physics_material_override = ExtResource("1_1mbsf")
 script = ExtResource("1_1p35t")
-force = null
-friction = null
-team = null
 metadata/_custom_type_script = "uid://c4sgo11j8eyqh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1mbsf")
 
 [node name="blueBall" type="Sprite2D" parent="."]

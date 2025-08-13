@@ -11,12 +11,24 @@ config_version=5
 [application]
 
 config/name="Billiard Bots"
+run/main_scene="uid://c8dvc22fp15ud"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+botManager="*res://assets/singletons/botManager.gd"
+
 [display]
 
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
+
+[gui]
+
+theme/custom="uid://vu2n5x2bk33y"
+theme/custom_font="uid://culo8q44in61a"
 
 [input]
 

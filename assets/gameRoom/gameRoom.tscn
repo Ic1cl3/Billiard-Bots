@@ -44,15 +44,12 @@ texture = ExtResource("1_yo7b0")
 
 [node name="wasdBall" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("2_t6kvb")]
 position = Vector2(423, 319)
-force = null
-friction = null
-team = null
 opponent = NodePath("../mouseBall")
 
 [node name="mouseBall" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_13cew")]
 position = Vector2(715, 322)
-force = null
-friction = null
+force = 100
+friction = 15.0
 team = 1
 opponent = NodePath("../wasdBall")
 
