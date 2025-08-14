@@ -91,7 +91,7 @@ func finish() -> void:
 		gameStartNode.playingTo = playingTo
 		gameStartNode.playerOneScore = playerOneScore
 		gameStartNode.playerTwoScore = playerTwoScore
-		gameStart.position = Vector2(576, 324)
+		gameStartNode.position = Vector2(576, 324)
 		add_child(gameStartNode)
 
 func _on_battle_zone_body_exited(body: Node2D) -> void: # Ejects balls which leave the arena.
