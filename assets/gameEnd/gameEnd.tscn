@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbpcq3j0knomw"]
+
+[ext_resource type="Texture2D" uid="uid://faradkx5x4t7" path="res://assets/mainMenu/beginBackground.png" id="1_ioxj0"]
+[ext_resource type="Script" uid="uid://dcdu0ypltoug8" path="res://assets/gameEnd/gameEnd.gd" id="2_tvixv"]
+
+[node name="gameEnd" type="TextureRect"]
+z_index = 3
+z_as_relative = false
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 1.0
+offset_right = -2.30408
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ioxj0")
+script = ExtResource("2_tvixv")

@@ -38,7 +38,7 @@ func setData(data : Dictionary, bot : int) -> void:
 	if bot == 0 and FileAccess.file_exists(botOnePath + "/tempIn.json"):
 		var tempIn : FileAccess = FileAccess.open(botOnePath + "/tempIn.json", FileAccess.WRITE)
 		tempIn.store_string(JSON.stringify(data))
-		tempIn.close
+		tempIn.close()
 	elif FileAccess.file_exists(botTwoPath + "/tempIn.json"):
 		var tempIn : FileAccess = FileAccess.open(botTwoPath + "/tempIn.json", FileAccess.WRITE)
 		tempIn.store_string(JSON.stringify(data))

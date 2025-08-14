@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgx2pc0352j5p"]
+[gd_scene load_steps=7 format=3 uid="uid://cgx2pc0352j5p"]
 
 [ext_resource type="Script" uid="uid://b2aakll5ac2rk" path="res://assets/gameRoom/gameRoom.gd" id="1_45cag"]
 [ext_resource type="Texture2D" uid="uid://6a0827ksbrc3" path="res://assets/gameRoom/backgroundTexture.png" id="1_yo7b0"]
-[ext_resource type="PackedScene" uid="uid://55ta8hknn3i" path="res://assets/ball/wasdBall/wasdBall.tscn" id="2_t6kvb"]
 [ext_resource type="Texture2D" uid="uid://cykj0q4osh1rm" path="res://assets/gameRoom/zoneEdgeTexture.png" id="3_vd06s"]
-[ext_resource type="PackedScene" uid="uid://cfbjv1qjj7jfo" path="res://assets/ball/mouseBall/mouseBall.tscn" id="5_13cew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhfun"]
 radius = 256.0
@@ -42,15 +40,31 @@ texture = SubResource("GradientTexture2D_npavp")
 position = Vector2(576, 324)
 texture = ExtResource("1_yo7b0")
 
-[node name="wasdBall" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("2_t6kvb")]
-position = Vector2(423, 319)
-opponent = NodePath("../mouseBall")
+[node name="countdown" type="Label" parent="."]
+offset_left = 511.0
+offset_top = 224.0
+offset_right = 641.0
+offset_bottom = 424.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="mouseBall" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_13cew")]
-position = Vector2(715, 322)
-force = 100
-friction = 15.0
-team = 1
-opponent = NodePath("../wasdBall")
+[node name="score" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 420.0
+offset_right = 776.0
+offset_bottom = 495.0
+text = "0 - 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="overtimeTimer" type="Timer" parent="."]
+wait_time = 50.0
+one_shot = true
+
+[node name="drawTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [connection signal="body_exited" from="battleZone" to="." method="_on_battle_zone_body_exited"]
+[connection signal="timeout" from="overtimeTimer" to="." method="_on_overtime_timer_timeout"]
+[connection signal="timeout" from="drawTimer" to="." method="_on_draw_timer_timeout"]

@@ -1,5 +1,6 @@
 extends ball
 ## Ball, but controlled with the mouse.
+class_name mouseBall
 
 var mouseDifference = Vector2.ZERO ## Difference between mouse cursor position and ball position.
 

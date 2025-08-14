@@ -1,5 +1,6 @@
 extends ball
 ## Ball, but controlled with WASD.
+class_name wasdBall
 
 var inputVector = Vector2.ZERO ## Vector of directional inputs.
 

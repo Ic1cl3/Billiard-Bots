@@ -22,6 +22,7 @@ var pos : Vector2 = Vector2.ZERO ## Position, in pixels.
 var opPos : Vector2 = Vector2.ZERO ## Opponent position, in pixels.
 var velocity : Vector2 = Vector2.ZERO ## Linear velocity in pixels per second.
 var opVelocity : Vector2 = Vector2.ZERO ## Opponent linear velocity in pixels per second.
+var action : bool = false ## Whether or not a battle is actively occurring.
 
 
 const centerOffset : Vector2 = Vector2(576, 324) ## Offset of the arena's (0, 0) from the actual (0, 0).
@@ -47,8 +48,8 @@ func _physics_process(_delta: float) -> void:
 	opVelocity = Vector2(opponent.linear_velocity.x, opponent.linear_velocity.y * -1)
 	# Visually shrink if falling into the abyss
 	if falling:
-		blueBallSprite.scale *= 1.2
-		redBallSprite.scale *= 1.2
+		blueBallSprite.scale *= 0.8
+		redBallSprite.scale *= 0.8
 
 ## Methodised conversion of degrees to radians.
 func rad(degrees : float):
@@ -67,6 +68,6 @@ func directionalize(vector : Vector2):
 		return deg(acos(vector.x)) * asin(vector.y)/abs(asin(vector.y)) * -1
 
 ## Ejects the ball from the arena.
-func eject() -> void:
-	apply_central_impulse((position - centerOffset) * 3)
+func eject(multiplier : float = 1.0) -> void:
+	apply_central_impulse((position - centerOffset) * multiplier)
 	falling = true
