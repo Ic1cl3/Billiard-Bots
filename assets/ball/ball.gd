@@ -40,6 +40,7 @@ func _physics_process(_delta: float) -> void:
 	var frictionForce : Vector2 = linear_velocity.normalized() * -1 * friction # Calculate friction force to be applied this frame.
 	apply_central_force(frameForce)
 	apply_central_force(frictionForce)
+	apply_central_force(Vector2(randf_range(0, 5), randf_range(0, 5)).normalized() * 5) # Wind, effectively random seed for each match.
 	# Update property variables.
 	opDir = opponent.dir
 	pos = Vector2(position.x, position.y * -1) - centerOffset
